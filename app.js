@@ -18,7 +18,7 @@ app.use(cors())
 // routes
 app.use("/api/v1/beans", require('./routes/bean'));
 app.use("/api/v1/coffees", require("./routes/coffee")); 
-app.use("/api/v1/auth", require("./routes/user"));
+app.use("/api/v1/auth", require("./routes/auth"));
 
 // port setup & listen to clients
 const port = process.env.PORT || 5000;
