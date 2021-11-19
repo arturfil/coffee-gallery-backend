@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 
@@ -13,7 +14,12 @@ mongoose.connect(process.env.MONGODB_URL)
 
 // middleware connection
 app.use(express.json());
-app.use(cors())
+app.use(cors());
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/',
+  createParentPath: true
+}))
 
 // routes
 app.use("/api/v1/beans", require('./routes/bean'));

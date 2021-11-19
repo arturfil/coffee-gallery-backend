@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const cloudinary = require('cloudinary').v2;
 
 const Coffee = require('../models/Coffee');
 
@@ -24,6 +25,29 @@ router.get("/coffee/:id", async (req, res) => {
     return res.status(500).json({message: "Couldn't get the coffee"});
   }
 });
+
+router.post("/coffee/imageUpload/:id", async (req, res) => {
+  const { id } = req.params;
+  const coffeeToUpdate = await Coffee.findById(id);
+
+  //check for pre-exisiting images
+  if (coffeeToUpdate.image) {
+    let array = coffeeToUpdate.image.split('/');
+    let fileName = array[array.length-1];
+    const [public_id] = fileName.split('.');
+    await cloudinary.uploader.destroy(public_id);
+  }
+
+  const { tempFilePath } = req.files.image;
+  const { secure_url } = await cloudinary.uploader.upload(tempFilePath);
+  coffeeToUpdate.image = secure_url;
+  await coffeeToUpdate.save();
+  try {
+    return res.status(201).json(coffeeToUpdate);
+  } catch (error) {
+    return res.status(500).json({message: "There was an error uploading the image"});
+  }
+})
 
 router.post("/coffee", async (req, res) => {
   const coffeeToCreate = await Coffee.create(req.body);

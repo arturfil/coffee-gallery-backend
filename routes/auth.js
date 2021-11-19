@@ -24,7 +24,7 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { email, password} = req.body;
-  const user = await User.findOne({email});
+  const user = await User.findOne({email}).populate("favorites")
   if (!user) {
     return res.status(500).json({message: "Please check credentials"})
   }
@@ -32,8 +32,8 @@ router.post("/login", async (req, res) => {
   if (!validPassword) {
     return res.status(500).json({message: "Please check credentials"});
   }
-  const token = generateJwt(user._id);
-  return res.status(200).json({token, user});
+  // const token = await generateJwt(user._id);
+  return res.status(200).json(user);
 })
 
 module.exports = router;
