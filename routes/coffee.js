@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 
 router.get("/coffee/:id", async (req, res) => {
   const { id } = req.params;
-  const coffee = await Coffee.findById(id);
+  const coffee = await Coffee.findById(id).populate("bean")
   try {
     return res.status(200).json(coffee);
   } catch (error) {

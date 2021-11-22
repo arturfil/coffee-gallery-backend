@@ -9,7 +9,7 @@ require('dotenv').config(); // to start our .env package
 
 // db connection
 mongoose.connect(process.env.MONGODB_URL)
-  .then(() => console.log("Connected to server...🔌"))
+  .then(() => console.log("Connected to DB...🔌"))
   .catch(() => console.log("Couldn't connect to db...❌"))
 
 // middleware connection
