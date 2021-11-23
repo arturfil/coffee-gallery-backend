@@ -36,4 +36,21 @@ router.post("/login", async (req, res) => {
   return res.status(200).json(user);
 })
 
+router.get("/favorites/:id", async (req, res) => {
+  const { id } = req.params;
+  const user = User.findById(id).populate("favorites");
+  try {
+    return res.status(200).json(user.favorites);
+  } catch (error) {
+    return res.status(500).json({message: "Couldn't retrieve coffees"})
+  }
+});
+
+router.post("/addFavorite/:id", async (req, res) => {
+  // retrieve fav id's
+  // push new id from req.body
+  // save user with the new update
+  
+})
+
 module.exports = router;
