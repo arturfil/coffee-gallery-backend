@@ -1,0 +1,56 @@
+[
+    {
+        "name": "XO Coffee",
+        "bean": "619bb4bd988a90adb1017a3e",
+        "roast": "MEDIUM",
+        "grind": 3
+    },
+    {
+        "name": "Kona Hawaii",
+        "bean": "619bb4c5988a90adb1017a40",
+        "roast": "LIGHT",
+        "grind": 2
+    },
+    {
+        "name": "Cafe Bustello",
+        "bean": "619bcadac9277bbb134ce3ea",
+        "roast": "HARD",
+        "grind": 7
+    },
+    {
+        "name": "Imperial Moto Cafe",
+        "bean": "619bb4bd988a90adb1017a3e",
+        "roast": "MEDIUM",
+        "grind": 3
+    },
+    {
+        "name": "Sips Cafe",
+        "bean": "619bb4c5988a90adb1017a40",
+        "roast": "LIGHT",
+        "grind": 2
+    },
+    {
+        "name": "Suite Habana Cafe",
+        "bean": "619bcadac9277bbb134ce3ea",
+        "roast": "HARD",
+        "grind": 7
+    },
+    {
+        "name": "Macondo Coffee Roasters",
+        "bean": "619bb4bd988a90adb1017a3e",
+        "roast": "MEDIUM",
+        "grind": 3
+    },
+    {
+        "name": "Tinta y Cafe",
+        "bean": "619bb4c5988a90adb1017a40",
+        "roast": "LIGHT",
+        "grind": 2
+    },
+    {
+        "name": "Pasion Del Cielo",
+        "bean": "619ea9b6f980839cf1b87a42",
+        "roast": "MEDIUM",
+        "grind": 3
+    }
+]
