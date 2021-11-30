@@ -62,6 +62,8 @@ router.put("/addFavorite/:id", async (req, res) => {
   const { coffee } = req.body;
   const userToUpdate = await User.findById(id);
   const { favorites } = userToUpdate;
+  const exists = favorites.find(id => id === coffee);
+  if (exists) return;
   favorites.push(coffee);
   userToUpdate.favorites = favorites;
   userToUpdate.save();
