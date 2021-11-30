@@ -32,8 +32,8 @@ router.post("/login", async (req, res) => {
   if (!validPassword) {
     return res.status(500).json({message: "Please check credentials"});
   }
-  // const token = await generateJwt(user._id); TODO: add token to login frontend
-  return res.status(200).json(user);
+  const token = await generateJwt(user._id); // TODO: add token to login frontend
+  return res.status(200).json({user, token});
 })
 
 router.get("/favorites/:id", async (req, res) => {
